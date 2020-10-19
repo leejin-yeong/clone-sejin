@@ -8,10 +8,10 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/script.js"></script>
     <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
 </head>
 <body>
 <div id="wrapper">
-    
     <div id="userWrap">
         <nav>
             <span>
@@ -29,11 +29,31 @@
             <p><input type="text" placeholder="id" id="loginId" autocomplete="off"></p>
             <p><input type="password" placeholder="password" id="loginPw" autocomplete="off"></p>
             <p><input class="btn" type="submit" value="로그인"></p>
-            <div class="button menuBtn" id="naverBtn">
+            <!--
+                <div class="button menuBtn" id="naverBtn">
                 <a href="https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=8HkITidEmr1tQaw5jtAL&redirect_uri=http://localhost:3000/chat&state=RAMDOM_STATE">
                     <img height='50' src='http://static.nid.naver.com/oauth/small_g_in.PNG'/>
                 </a>
-            </div>
+                </div>
+            -->
+             <div id="naverIdLogin"></div>
+            <!-- //네이버아이디로로그인 버튼 노출 영역 -->
+
+            <!-- 네이버아디디로로그인 초기화 Script -->
+            <script type="text/javascript">
+                var naverLogin = new naver.LoginWithNaverId(
+                    {
+                        clientId: "8HkITidEmr1tQaw5jtAL",
+                        callbackUrl: "http://localhost:3000/chat",
+                        isPopup: false, /* 팝업을 통한 연동처리 여부 */
+                        loginButton: {color: "green", type: 3, height: 60} /* 로그인 버튼의 타입을 지정 */
+                    }
+                );
+                
+                /* 설정정보를 초기화하고 연동을 준비 */
+                naverLogin.init();
+                
+            </script>
         </form>
         <form id="joinForm">
             <h1>JOIN</h1>
@@ -42,6 +62,7 @@
             <p><input class="btn" type="submit" value="회원가입"></p>
         </form>
     </div>
+
     <div id="contentWrap">
         <nav>
             <span id="nav-header">
