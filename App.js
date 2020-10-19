@@ -46,7 +46,7 @@ io.sockets.on('connection', function (socket) {
             onlineUsers[data.id] = {roomId: 1, socketId: socket.id};
             socket.join('room' + data.roomId);
             cb({result: true, data: "로그인에 성공하였습니다."});
-            res.sendFile(__dirname + '/chat.html');
+            //res.sendFile(__dirname + '/chat.html');
         } else {
             cb({result: false, data: "등록된 회원이 없습니다. 회원가입을 진행해 주세요."});
             return false;
