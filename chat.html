@@ -40,8 +40,7 @@
 						naverLogin.reprompt();
 						return;
 					}
-
-					window.location.replace("http://" + window.location.hostname + ( (location.port==""||location.port==undefined)?"":":" + location.port) + "/sample/main.html");
+					window.location.replace("http://" + window.location.hostname + ( (location.port==""||location.port==undefined)?"":":" + location.port) + "/main");
 				} else {
 					console.log("callback 처리에 실패하였습니다.");
 				}

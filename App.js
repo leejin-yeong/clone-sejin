@@ -26,6 +26,10 @@ app.get('/chat', function (req, res) {
     res.sendFile(__dirname + '/chat.html');
 }); // '/chat'으로 들어오는 요청은 chat.html 을 렌더링
 
+app.get('/main', function (req, res) {
+    res.sendFile(__dirname + '/main.html');
+}); // '/chat'으로 들어오는 요청은 chat.html 을 렌더링
+
 server.listen(port, () => {
     console.log(`server open ${port}`);
 }); // 3000 포트로 서버 open
